@@ -1,0 +1,12 @@
+import java.io.Console;
+import java.util.Calendar;
+import java.util.Scanner;
+import java.util.GregorianCalendar;
+
+public class Code {
+
+    public static void main(String[] args) {
+        int n = Integer.parseInt(args[0]);
+        System.out.println("Years = " + n / 365 + ", Weeks = " + (n % 365) / 7 + ", Days = " + (n - (n / 365) * 365 - ((n % 365) / 7) * 7));
+    }
+}
