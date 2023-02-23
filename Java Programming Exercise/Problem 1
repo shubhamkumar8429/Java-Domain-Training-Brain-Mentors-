@@ -1,0 +1,50 @@
+import java.io.Console;
+import java.util.Calendar;
+import java.util.Scanner;
+import java.util.GregorianCalendar;
+
+public class Code {
+
+    public static void main(String[] args) {
+    
+        if( args.length < 3 ) {
+            System.out.println("Please enter valid operation");
+            return;
+        }
+    
+        int first = Integer.parseInt(args[0]), second = 0;
+        
+        if (args.length == 6)
+            second = Integer.parseInt(args[5]);
+        else
+            second = Integer.parseInt(args[2]);
+
+        char ch = args[1].charAt(0);
+
+        if (args.length == 6)
+            ch = '*';
+
+        int ans = 0;
+        if (ch == '+')
+            System.out.println("yes");
+        if (ch == '*')
+            ans = first * second;
+        else if (ch == '-')
+            ans = first - second;
+        else if (ch == '+')
+            ans = first + second;
+        else if (ch == '/') {
+            if (second != 0)
+                ans = first / second;
+            else {
+                System.out.println("Can't divide by zero");
+                return;
+            }
+        } else {
+            System.out.println("Can't perform this operation");
+            return;
+        }
+        
+        System.out.println(ans);
+    }
+}
