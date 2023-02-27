@@ -1,0 +1,23 @@
+import java.io.Console;
+import java.util.Scanner;
+
+public class Code {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int first = scanner.nextInt();
+        int second = scanner.nextInt();
+
+        int res = first, t = first;
+        while (first > 0) {
+            res *= first % 10;
+            first /= 10;
+        }
+
+        if (second % res == 0)
+            System.out.println(t + " is a seed of " + second);
+        else
+            System.out.println(t + " is not a seed of " + second);
+
+    }
+}
