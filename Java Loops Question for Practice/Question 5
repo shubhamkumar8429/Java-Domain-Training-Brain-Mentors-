@@ -1,0 +1,22 @@
+import java.io.Console;
+import java.util.Scanner;
+
+public class Code {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = scanner.nextInt();
+
+        int res = 0, t = n;
+        while (n > 0) {
+            res += n % 10;
+            n /= 10;
+        }
+
+        if (t % res == 0)
+            System.out.println(t + " is divisible by sum of its digits");
+        else
+            System.out.println(t + " is not divisible by sum of its digits");
+
+    }
+}
