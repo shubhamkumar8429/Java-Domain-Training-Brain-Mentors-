@@ -1,0 +1,32 @@
+import java.io.Console;
+import java.util.Scanner;
+
+public class Code {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int n = scanner.nextInt();
+
+        int i = 1, even = 0, odd = 0, t = n;
+        while (n > 0) {
+            if (i % 2 == 0)
+                even += ((n % 10) * (n % 10));
+            else
+                odd += ((n % 10) * (n % 10));
+
+            n /= 10;
+            i++;
+        }
+
+        i--;
+
+        if (i % 2 == 0)
+            even = odd;
+
+        if (even%9 == 0)
+            System.out.println(t + " is a lucky number");
+        else
+            System.out.println(t + " is not a lucky number");
+
+    }
+}
