@@ -2,12 +2,19 @@ import java.io.Console;
 import java.util.Scanner;
 
 public class Code {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         int n = scanner.nextInt();
 
-        for( int i = 1; i<=n; i++ ) System.out.println(i);
-
+        for( int i = 1; i<=10; i++ ){
+            int diff = i;
+            for( int j = 1; j<=n; j++ ){
+                System.out.print(diff + "\t");
+                diff += i;
+            }
+            System.out.println("");
+        }
     }
 }
