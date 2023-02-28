@@ -2,21 +2,36 @@ import java.io.Console;
 import java.util.Scanner;
 
 public class Code {
+
+    public static int numberOfDigits(int n) {
+        int cnt = 0;
+        while (n > 0) {
+            cnt++;
+            n /= 10;
+        }
+
+        return cnt;
+    }
+
+    public static boolean check(int n) {
+        int d = numberOfDigits(n);
+        int res = 0, t = n;
+        while (n > 0) {
+            res += Math.pow(n % 10, d);
+            n /= 10;
+        }
+
+        return res == t;
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         int n = scanner.nextInt();
 
-        int res = 0, t = n;
-        while (n > 0) {
-            res += ((n % 10) * (n % 10) * (n % 10));
-            n /= 10;
-        }
-
-        if (res == t)
+        if (check(n))
             System.out.println("The entered number is Armstrong number");
         else
             System.out.println("The entered number is not Armstrong Number");
-
     }
 }
