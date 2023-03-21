@@ -1,0 +1,37 @@
+import java.util.Locale;
+import java.util.ResourceBundle;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Please select your language");
+
+        System.out.println("1. हिंदी \n2. English");
+        int choice = scanner.nextInt();
+
+        Locale locale = Locale.US;
+        if (choice == 1) {
+            locale = new Locale("hi", "IN");
+        }
+
+        ResourceBundle bundle = ResourceBundle.getBundle("Messages", locale);
+
+        System.out.println(bundle.getString("MessageToCreateNewEmployee"));
+        System.out.println(bundle.getString("EnterTheId"));
+        int id = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println(bundle.getString("AskName"));
+        String name = scanner.nextLine();
+
+        System.out.println(bundle.getString("AskBaseSalary"));
+        double baseSalary = scanner.nextDouble();
+
+        Employee employee = new Employee(id, name, baseSalary, locale);
+        employee.printDetails();
+
+        scanner.close();
+    }
+}
